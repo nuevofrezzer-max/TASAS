@@ -1,4 +1,25 @@
 -- YiamHub v2 - GUI Estética + AutoFarm
+-- Verificación de carga y bienvenida
+if not game:IsLoaded() then
+    game.Loaded:Wait()
+end
+
+-- Mensaje en consola
+print("✅ YiamHub cargado correctamente")
+
+-- Notificación visual en pantalla
+pcall(function()
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "YiamHub",
+        Text = "Script cargado correctamente ✅",
+        Duration = 5
+    })
+end)
+
+-- Detección de executor (si lo soporta)
+if identifyexecutor then
+    print("Ejecutor detectado: " .. identifyexecutor())
+end
 local player = game.Players.LocalPlayer
 local char = player.Character or player.CharacterAdded:Wait()
 local rs = game:GetService("ReplicatedStorage")
